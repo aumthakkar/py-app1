@@ -11,7 +11,7 @@ def info():
     return jsonify({
         "time" : time.ctime(),
         "hostname" : socket.gethostname(),
-        "message" : "Hi, Pranav! You are doing great, human!"
+        "message" : "Hi, Pranav! You are doing great, man!"
     })
 
 @app.route('/api/v1/healthz')
