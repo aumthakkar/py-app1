@@ -29,5 +29,25 @@ jobs:
           tags: aumthakkar/py-app1:${{ env.COMMIT_ID }}
     
     outputs:
-        commit_id: ${{ env.COMMIT_ID}}      
-    
+        commit_id: ${{ env.COMMIT_ID}}   
+        
+  cd:
+    runs-on: self-hosted
+    steps:
+      - 
+        name: Clone your github repo
+        uses: actions/checkout@v3 
+
+      - 
+        name: Update the values file from Helm chart to have the right tag
+        shell: bash
+        run: |
+          echo "${{ needs.ci.output.commit_id }}"
+          pip install yq
+          yq -yi '(.values.tag="${{ needs.ci.output.commit_id }}")' charts/py-app1/templates/values.yaml
+
+      - 
+        name: Commit the change
+        uses: EndBug/add-and-commit@v9
+        with:
+          message: 'replace the values.yaml tag with ${{ needs.ci.output.commit_id }}'
