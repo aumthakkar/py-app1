@@ -44,7 +44,7 @@ jobs:
         run: |
           echo "${{ needs.ci.output.commit_id }}"
           pip install yq
-          yq -yi '(.values.tag="${{ needs.ci.output.commit_id }}")' charts/py-app1/templates/values.yaml
+          yq -Yi '.image.tag = "${{ needs.ci.output.commit_id }}"' charts/py-app1/values.yaml
 
       - 
         name: Commit the change
