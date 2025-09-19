@@ -42,12 +42,12 @@ jobs:
         name: Update the values file from Helm chart to have the right tag
         shell: bash
         run: |
-          echo "${{ needs.ci.output.commit_id }}"
+          echo "${{ needs.ci.outputs.commit_id }}"
           pip install yq
-          yq -Yi '.image.tag = "${{ needs.ci.output.commit_id }}"' charts/py-app1/values.yaml
+          yq -Yi '.image.tag = "${{ needs.ci.outputs.commit_id }}"' charts/py-app1/values.yaml
 
       - 
         name: Commit the change
         uses: EndBug/add-and-commit@v9
         with:
-          message: 'replace the values.yaml tag with ${{ needs.ci.output.commit_id }}'
+          message: 'replace the values.yaml file image tag with ${{ needs.ci.outputs.commit_id }}'
