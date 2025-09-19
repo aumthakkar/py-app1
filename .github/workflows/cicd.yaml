@@ -32,7 +32,6 @@ jobs:
         commit_id: ${{ env.COMMIT_ID}}   
         
   cd:
-    needs: ci
     runs-on: self-hosted
     steps:
       - 
@@ -45,7 +44,7 @@ jobs:
         run: |
           echo "${{ needs.ci.output.commit_id }}"
           pip install yq
-          yq -Yi '.image.tag = "${{ needs.ci.output.commit_id }}"' charts/py-app1/values.yaml
+          yq -yi '(.values.tag="${{ needs.ci.output.commit_id }}")' charts/py-app1/templates/values.yaml
 
       - 
         name: Commit the change
