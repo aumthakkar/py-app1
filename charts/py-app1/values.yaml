@@ -2,7 +2,7 @@ replicaCount: 1
 image:
   repository: aumthakkar/py-app1
   pullPolicy: IfNotPresent
-  tag: "0f89e1"
+  tag: "df3728"
 imagePullSecrets: []
 nameOverride: ""
 fullnameOverride: ""
