@@ -37,11 +37,11 @@ resources:
 livenessProbe:
   httpGet:
     path: /api/v1/healthz
-    port: http
+    port: 80
 readinessProbe:
   httpGet:
     path: /api/v1/healthz
-    port: http
+    port: 80
 autoscaling:
   enabled: false
   minReplicas: 1
