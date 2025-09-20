@@ -2,7 +2,7 @@ replicaCount: 1
 image:
   repository: aumthakkar/py-app1
   pullPolicy: IfNotPresent
-  tag: "32a58a"
+  tag: "6293fe"
 imagePullSecrets: []
 nameOverride: ""
 fullnameOverride: ""
@@ -34,14 +34,6 @@ resources:
   requests:
     cpu: 50m
     memory: 50Mi
-# livenessProbe:
-#   httpGet:
-#     path: /api/v1/healthz
-#     port: 80
-# readinessProbe:
-#   httpGet:
-#     path: /api/v1/healthz
-#     port: 80
 autoscaling:
   enabled: false
   minReplicas: 1
