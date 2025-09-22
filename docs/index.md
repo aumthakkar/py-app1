@@ -1,9 +1,10 @@
-# Documents for python-app
+# Documents for py-app1
 
 This application has two endpoints:
-- '/api/v1/info'
-- '/api/v1/healthz'
+- 'api/v1/info'
+- api/v1/healthz
 
-# How to access the app?
+
+# How to access the app
 
 You can access this app by accessing the URL: 'py-app1.test.com/api/v1/info'
