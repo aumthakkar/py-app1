@@ -1,6 +1,7 @@
 # Documents for py-app1
 
 This application has two endpoints:
+
 - 'api/v1/info'
 - api/v1/healthz
 
